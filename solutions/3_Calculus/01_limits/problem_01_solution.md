@@ -1,24 +1,54 @@
-# Exercise 1: Dominant Terms
+## Solution: Dominant Terms in a Sequence
 
-## Problem Statement
-Compute the sequence limit and explain dominance.
+We want to compute
 
-## Theoretical Background and Concepts
-Dividing a rational polynomial expression by its highest power isolates the leading coefficients.
+\\[ \lim\_{n\to\infty}\frac{4n^2-3n+1}{2n^2+5n-7}. \\]
 
-### How to Think About This Problem
+### Step 1. Identify the dominant terms
 
-Begin with direct substitution to identify the form. If it is determinate, stop; if it is $0/0$, $\infty/\infty$, or $\infty-\infty$, choose an algebraic transformation such as factoring, dividing by the dominant term, or multiplying by a conjugate. Every transformation should preserve the expression for nearby admissible values.
+The highest-degree terms are:
 
-## Detailed Step-by-Step Solution
-$$
-\frac{4n^2-3n+1}{2n^2+5n-7}
-=\frac{4-3/n+1/n^2}{2+5/n-7/n^2}\longrightarrow\frac42=2.
-$$
+- Numerator: \\(4n^2\\)
+- Denominator: \\(2n^2\\)
 
-## Common Mistakes and Key Takeaway
+Both polynomials have degree 2.
 
-An indeterminate form is not an answer—it only says more work is needed. Numerical tables can suggest a limit but cannot prove it. The key takeaway is to expose the dominant behavior and then use established limit laws; for one-sided limits, keep track of the sign as well as the magnitude.
+### Step 2. Divide by the highest power of \\(n\\)
 
-## Verification and Consistency Checks
-All lower-degree ratios tend to zero, leaving only the quadratic coefficients.
+Divide the numerator and denominator by \\(n^2\\):
+
+\\[ =\lim\_{n\to\infty} \frac{4-\frac3n+\frac1{n^2}} {2+\frac5n-\frac7{n^2}}. \\]
+
+### Step 3. Evaluate the limit
+
+As \\(n\to\infty\\),
+
+\\[ \frac1n\to0,\qquad \frac1{n^2}\to0. \\]
+
+Therefore,
+
+\\[ =\frac{4-0+0}{2+0-0}=\frac42. \\]
+
+FINAL ANSWER
+
+\\[ \boxed{\displaystyle\lim\_{n\to\infty}\frac{4n^2-3n+1}{2n^2+5n-7}=2} \\]
+
+### Why do the highest-degree terms determine the result?
+
+As \\(n\\) becomes very large, \\(n^2\\) grows much faster than \\(n\\) or a constant.
+
+Consequently,
+
+\\[ 4n^2-3n+1\sim4n^2 \\]
+
+and
+
+\\[ 2n^2+5n-7\sim2n^2. \\]
+
+Thus, for large \\(n\\),
+
+\\[ \frac{4n^2-3n+1}{2n^2+5n-7} \approx\frac{4n^2}{2n^2}=2. \\]
+
+Key principle: When the numerator and denominator are polynomials of the same degree, the limit as \\(n\to\infty\\) equals the ratio of their leading coefficients.
+
+I can also create a graph illustrating how the sequence approaches 2.
